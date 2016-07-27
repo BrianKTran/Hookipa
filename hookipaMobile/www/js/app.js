@@ -72,7 +72,15 @@ angular.module('hookipaMobile', ['ionic', 'hookipaMobile.controllers', 'hookipaM
         }
       }
     })
-
+.state('app.settings', {
+      url: '/settings',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/settings.html',
+          controller: 'SettingsController'
+        }
+      }
+    })
   .state('app.dishdetails', {
     url: '/menu/:id',
     views: {
