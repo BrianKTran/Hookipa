@@ -81,21 +81,7 @@ angular.module('hookipaMobile', ['ionic', 'hookipaMobile.controllers', 'hookipaM
         controller: 'DishDetailController'
       }
     }
-  })
-
-.state('app.settings', {
-    url: '/settings',
-    views: {
-      'mainContent': {
-        templateUrl: 'templates/settings.html',
-        controller: 'SettingsController'
-      }
-    }
-  })
-
-
-
-  ;
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
