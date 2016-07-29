@@ -76,7 +76,8 @@ angular.module('hookipaMobile.controllers', [])
 })
 
 //declaration
-.controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
+.controller('MenuController', ['$scope', 'menuFactory', 'favoriteFactory', 'baseURL', 
+    '$ionicListDelegate', function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate) {
 
             //Functions
             $scope.baseURL = baseURL;  
@@ -186,6 +187,29 @@ angular.module('hookipaMobile.controllers', [])
                             }
             );
 
+
+    //                  $scope.openOptionBtn = function (index) {
+    //     var confirmPopup = $popover.confirm({
+    //         title: 'Confirm Delete',
+    //         template: 'Are you sure you want to delete this item?'
+    //     });
+
+    //     confirmPopup.then(function (res) {
+    //         if (res) {
+    //             console.log('Ok to delete');
+    //             favoriteFactory.deleteFromFavorites(index);
+    //         } else {
+    //             console.log('Canceled delete');
+    //         }
+    //     });
+
+    //     $scope.popover= false;
+
+    // }
+
+       
+
+     
             
         }])
 
@@ -327,6 +351,8 @@ angular.module('hookipaMobile.controllers', [])
         $scope.shouldShowDelete = false;
 
     }
+
+
 
 
 
