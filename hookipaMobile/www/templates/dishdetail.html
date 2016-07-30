@@ -1,16 +1,47 @@
+
+
+
 <ion-view view-title="Dish Details">
 
 
  <ion-nav-buttons side="secondary">
       <div class="buttons">
+       
         <button class="button button-icon icon ion-more"
-          ng-click="openOptionBtn()">
+          ng-click="openPopover()">
+
+
+
 
 
 
           </button>
       </div>
     </ion-nav-buttons>
+<script id="dish-detail-popover.html" type="text/ng-template">
+ 
+<ion-popover-view>
+  
+      <ion-header-bar>
+         <h1 class="title"> Popover Title</h1>
+      </ion-header-bar>
+    
+      <ion-content>
+         Popover Content!
+         <div class="list">
+      <a class="item">
+        Compartir
+      </a>
+      <a class="item" ng-click="showConfirm()">
+        Eliminar
+      </a>
+    </div>
+      </ion-content>
+    
+   </ion-popover-view>
+</script>
+
+    
   <ion-content>
       <div class="card">
           <div class="item item-body item-text-wrap">
@@ -40,3 +71,4 @@
       </div>
   </ion-content>
 </ion-view>
+

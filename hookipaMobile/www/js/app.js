@@ -81,31 +81,38 @@ angular.module('hookipaMobile', ['ionic', 'hookipaMobile.controllers', 'hookipaM
         }
       }
     })
+   .state('app.favorites', {
+      url: '/favorites',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/favorites.html',
+            controller:'FavoritesController',
+          resolve: {
+              dishes:  ['menuFactory', function(menuFactory){
+                return menuFactory.query();
+              }],
+                            favorites: ['favoriteFactory', function(favoriteFactory) {
+                  return favoriteFactory.getFavorites();
+              }]
+          }
+        }
+      }
+    })
+
   .state('app.dishdetails', {
     url: '/menu/:id',
     views: {
       'mainContent': {
         templateUrl: 'templates/dishdetail.html',
-        controller: 'DishDetailController'
-      }
-    }
-  })
-
-
-
-
-.state('app.favorites', {
-      url: '/favorites',
-      views: {
-        'mainContent': {
-          templateUrl: 'templates/favorites.html',
-            controller:'FavoritesController'
+        controller: 'DishDetailController',
+        resolve: {
+            dish: ['$stateParams','menuFactory', function($stateParams, menuFactory){
+                return menuFactory.get({id:parseInt($stateParams.id, 10)});
+            }]
         }
       }
-    })
-
-
-  ;
+    }
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
